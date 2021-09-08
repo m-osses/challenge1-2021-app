@@ -1,0 +1,9 @@
+# requirements for ci
+-r ./requirements-prod.txt
+flake8<3.9
+
+pytest-cov<2.13
+coverage==6.0b1
+
+# required to check security issues
+safety

@@ -1,0 +1,4 @@
+# requirements for production
+
+flask
+flask_sqlalchemy

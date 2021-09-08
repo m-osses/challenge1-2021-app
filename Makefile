@@ -29,3 +29,9 @@ pip-sync:
 	set -e
 	source $(VIRTUALENV_DIR)/bin/activate
 	pip-sync --pip-args "--no-deps --require-hashes" ./reqs/requirements-ci.txt
+
+pip-run-safety:
+	set -e
+	source $(VIRTUALENV_DIR)/bin/activate
+	pip freeze > reqs.txt
+	safety check -r reqs.txt

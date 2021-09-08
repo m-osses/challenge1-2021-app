@@ -35,3 +35,17 @@ pip-run-safety:
 	source $(VIRTUALENV_DIR)/bin/activate
 	pip freeze > reqs.txt
 	safety check -r reqs.txt
+
+database-docker-compose-up-d:
+	set -e
+	source $(VIRTUALENV_DIR)/bin/activate
+	docker-compose -f docker-compose.yml up -d
+
+env-local-export: envs/local/.env.local
+	sed -ne '/^export / {p;d}; /.*=/ s/^/export / p' envs/local/.env.local > env-local-export
+
+flask_run: env-local-export
+	set -e
+	source $(VIRTUALENV_DIR)/bin/activate
+	export FLASK_APP=app.py
+	. env-local-export && flask run

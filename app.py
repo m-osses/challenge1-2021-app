@@ -1,13 +1,8 @@
-import os
-from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from models import Client
+from flask import request, jsonify
+from models import Client, db
+from init import create_app
 
-app = Flask(__name__)
-
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+app = create_app()
 
 
 # Index

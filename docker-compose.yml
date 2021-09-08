@@ -1,0 +1,21 @@
+# Use postgres/example user/password credentials
+version: '3.7'
+
+services:
+  db-challenge:
+    # https://hub.docker.com/_/postgres
+    image: postgres:12-alpine
+    restart: "no"
+    volumes:
+      - database-challenge-storage:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: devlocal
+      POSTGRES_PASSWORD: devlocal
+      POSTGRES_DB: devlocal
+      # POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+
+
+volumes:
+  database-challenge-storage:

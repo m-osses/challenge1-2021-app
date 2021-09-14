@@ -8,7 +8,7 @@ steps:
   # Run test reqs
   - name: python
     entrypoint: pip
-    args: ["pip", "freeze", ">", "reqs.txt"]
+    args: ["freeze", ">", "reqs.txt"]
 
   - name: python
     entrypoint: safety

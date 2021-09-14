@@ -1,0 +1,14 @@
+steps:
+  # Install dependencies
+  - name: python
+    entrypoint: pip
+    args: ["install", "-r", "reqs/requirements-ci.txt", "--user"]
+
+  # [START cloudbuild_python_tests_yaml]
+  # Run test reqs
+  - name: bash
+    args: ["echo", "PUT TESTS HERE"]
+
+  # [END cloudbuild_python_tests_yaml]
+
+  # [START cloudbuild_python_image_yaml]

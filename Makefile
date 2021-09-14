@@ -47,5 +47,15 @@ env-local-export: envs/local/.env.local
 flask_run: env-local-export
 	set -e
 	source $(VIRTUALENV_DIR)/bin/activate
-	export FLASK_APP=app.py
+	export FLASK_APP=app/app.py
 	. env-local-export && flask run
+
+flask_db_init: env-local-export
+	set -e
+	source $(VIRTUALENV_DIR)/bin/activate
+	. env-local-export && python app/manage.py db init
+
+flask_db_migrate: env-local-export
+	set -e
+	source $(VIRTUALENV_DIR)/bin/activate
+	. env-local-export && python app/manage.py db migrate

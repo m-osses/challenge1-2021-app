@@ -1,3 +1,4 @@
+import os
 from flask import request, jsonify
 from models import Client, db
 from init import create_app
@@ -59,4 +60,4 @@ def get_by_name(name_):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=int(os.environ.get("PORT"), 8080))

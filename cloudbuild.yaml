@@ -6,9 +6,8 @@ steps:
 
   # [START cloudbuild_python_tests_yaml]
   # Run test reqs
-  - name: python
-    entrypoint: pip
-    args: ["freeze", ">", "reqs.txt", "&&", "safety", "check", "-r", "reqs.txt"]
+  - name: bash
+    args: ["echo", "PUT TESTS HERE"]
 
   # [START cloudbuild_python_image_yaml]
   # Docker Build

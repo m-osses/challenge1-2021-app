@@ -8,11 +8,8 @@ steps:
   # Run test reqs
   - name: python
     entrypoint: pip
-    args: ["freeze", ">", "reqs.txt"]
+    args: ["freeze", ">", "reqs.txt", "&&", "safety", "check", "-r", "reqs.txt"]
 
-  - name: python
-    entrypoint: safety
-    args: ["check", "-r", "reqs.txt"]
   # [END cloudbuild_python_tests_yaml]
 
   # [START cloudbuild_python_image_yaml]
